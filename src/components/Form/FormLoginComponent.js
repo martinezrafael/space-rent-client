@@ -1,13 +1,9 @@
 import React, { useState } from "react";
-import styled from "styled-components";
+
 import { useNavigate } from "react-router-dom";
 import apiUtils from "../../utils/api.utils";
 
-const Form = styled.form`
-  max-width: 300px;
-`;
 
-const FormContainer = styled.div``;
 
 const FormLoginComponent = () => {
     const [username, setUsername] = useState("");
