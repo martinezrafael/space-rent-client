@@ -5,11 +5,51 @@ class Api {
         this.api = axios.create({
             baseURL: uri,
         });
+
+        this.api.interceptors.request.use(
+            (config) => {
+                const token = localStorage.getItem("token");
+                if (token) {
+                    config.headers = {
+                        Authorization: `Bearer ${token}`,
+                    };
+                }
+                return config;
+            },
+            (error) => {
+                console.log(error);
+            }
+        );
+
+        this.api.interceptors.response.use(
+            (response) => response,
+            (error) => {
+                if(error.response.status === 401){
+                    localStorage.removeItem('token');
+                    localStorage.removeItem('user');
+                }
+                throw error;
+            }
+        )
+
     }
 
     //usuarios
 
-    //criar usuário
+    //signup
+
+    //login
+
+    login = async (user) => {
+        try {
+            const { data } = await this.api.post("/auth/login", user);
+            localStorage.setItem("token", data.token);
+            localStorage.setItem("user", JSON.stringify(data.user));
+            return data;
+        } catch (error) {
+            throw error.response;
+        }
+    };
 
     //ler usuários
     getUsers = async () => {
@@ -38,6 +78,8 @@ class Api {
             throw error.response;
         }
     };
+
+    //deletar espaço
 }
 
 export default new Api("https://space-rent-api.herokuapp.com/");
