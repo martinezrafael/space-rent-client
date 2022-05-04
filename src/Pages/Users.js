@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import styled from "styled-components";
 import UserList from '../components/List/UserListComponent';
 import apiUsers from "../utils/api.utils";
 

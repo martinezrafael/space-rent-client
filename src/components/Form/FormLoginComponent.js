@@ -1,9 +1,5 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import BtnRedComponent from "../Buttons/BtnRedComponent";
-import InputPasswordComponent from "../Inputs/InputPasswordComponent";
-import InputTextComponent from "../Inputs/InputTextComponent";
-import LabelComponent from "./LabelComponent";
 import { useNavigate } from "react-router-dom";
 import apiUtils from "../../utils/api.utils";
 
