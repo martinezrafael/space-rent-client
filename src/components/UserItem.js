@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const UserItem = ({_id, username, biography, image, getAllUsers}) => {
     return (
-        <Link to='/users'>
+        <Link to={`/users/${_id}`}>
             <div>
                 <img width='200' src={image} alt={username} />
                 <h3>{username}</h3>
