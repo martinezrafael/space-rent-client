@@ -1,15 +1,11 @@
-import FooterComponent from "../components/Footers/FooterComponent";
-import FormLoginComponent from "../components/Form/FormLoginComponent";
-import HeaderComponent from "../components/Headers/HeaderComponent";
+import FormLogin from "../components/FormLogin";
 
-
-const Login = () => {
-    return (
-        <>
-            <HeaderComponent />
-                <FormLoginComponent />
-            <FooterComponent />
-        </>
+const Login  = () => {
+    return(
+        <div>
+            <h2>Login</h2>
+            <FormLogin />
+        </div>
     )
 }
 

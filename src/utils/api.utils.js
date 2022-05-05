@@ -26,19 +26,21 @@ class Api {
             (error) => {
                 if(error.response.status === 401){
                     localStorage.removeItem('token');
-                    localStorage.removeItem('user');
+                    localStorage.removeItem('user')
                 }
                 throw error;
             }
-        )
-
+        );
     }
 
-    //usuarios
-
-    //signup
-
-    //login
+    signup = async (username, password, biography) => {
+        try {
+            const { data } = this.api.post('/auth/signup', {username, password, biography});
+            return data;
+        } catch (error) {
+            throw error.response;
+        }
+    }
 
     login = async (user) => {
         try {
@@ -51,35 +53,24 @@ class Api {
         }
     };
 
-    //ler usuários
+    getProfile = async () => {
+        try {
+            const { data } = await this.api.get('/user');
+            return data;
+        } catch (error) {
+            
+        }
+    }
+
     getUsers = async () => {
         try {
-            const { data } = await this.api.get("/users");
+            const { data } = await this.api.get('/users');
             return data;
         } catch (error) {
             throw error.response;
         }
-    };
+    }
 
-    //ler usuário
-
-    //atualizar usuário
-
-    //espaços
-
-    //criar espaço
-
-    //ler espaços
-    getSpaces = async () => {
-        try {
-            const { data } = await this.api.get("/spaces");
-            return data;
-        } catch (error) {
-            throw error.response;
-        }
-    };
-
-    //deletar espaço
 }
 
 export default new Api("https://space-rent-api.herokuapp.com/");

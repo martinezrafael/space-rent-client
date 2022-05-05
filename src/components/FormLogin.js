@@ -1,14 +1,10 @@
-import React, { useState } from "react";
-
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import apiUtils from "../../utils/api.utils";
+import apiUtils from "../utils/api.utils";
 
-
-
-const FormLoginComponent = () => {
+const FormLogin = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-
 
     const navigate = useNavigate();
 
@@ -17,15 +13,16 @@ const FormLoginComponent = () => {
         setPassword('');
     }
 
-    const handleSubmit = async (e) => {
+    const handleSubmit =  async (e) => {
         e.preventDefault();
         try {
-            await apiUtils.login({username, password});
+            await apiUtils.login({username, password})
             resetForm();
-            navigate('/');
+            navigate('/private/profile')
         } catch (error) {
-            console.log(error.message);
+            console.log(error);
         }
+
     }
 
     return (
@@ -38,6 +35,8 @@ const FormLoginComponent = () => {
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
                 />
+            </div>
+            <div>
                 <label htmlFor="password">Senha</label>
                 <input
                     id="password"
@@ -51,4 +50,4 @@ const FormLoginComponent = () => {
     );
 };
 
-export default FormLoginComponent;
+export default FormLogin;
