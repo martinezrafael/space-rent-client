@@ -4,14 +4,14 @@ import UserList from "../components/UserList";
 import apiUtils from "../utils/api.utils";
 
 const Users = () => {
-    const [ users, setusers ] = useState([]);
+    const [ users, setUsers ] = useState([]);
 
     const navigate = useNavigate();
 
     const getAllUsers = async () => {
         try {
             const users = await apiUtils.getUsers();
-            setusers(users)
+            setUsers(users)
         } catch (error) {
             console.error(error);
             navigate('/login');
@@ -20,7 +20,7 @@ const Users = () => {
 
     useEffect(() => {
         getAllUsers();
-    }, [getAllUsers]);
+    }, [getAllUsers()]);
 
     return (
         <div>
