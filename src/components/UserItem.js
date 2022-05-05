@@ -1,5 +1,3 @@
-import { useState } from "react";
-import apiUtils from "../utils/api.utils";
 import { Link } from "react-router-dom";
 
 const UserItem = ({_id, username, biography, image, getAllUsers}) => {
