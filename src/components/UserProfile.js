@@ -1,14 +1,51 @@
 import { useState } from "react";
 import apiUtils from "../utils/api.utils";
+import styled from "styled-components";
 
-const UserProfile = ({ _id, username, biography, image }) => {
+const ContainerChangeImage = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 240px;
+  background-color: #f9f9fa;
+  padding: 10px;
+  margin: 10px 0;
+`;
+
+const Label = styled.label`
+  color: #f9f9fa;
+  display: block;
+  margin-bottom: 5px;
+`;
+
+const CardUploadImage = styled.div`
+  background-color: #e64e35;
+  width: 300px;
+  margin-bottom: 10px;
+  padding: 20px;
+`;
+
+const Profile = styled.div`
+  max-width: 80%;
+`;
+
+const ProfileInformations = styled.div`
+    display: flex;
+    align-items: center;
+    background-color: #F9F9FA;
+    color: #1E56BC;
+    padding: 10px;
+    gap: 50px;
+`
+
+const UserProfile = ({ _id, username, biography, image, spaces }) => {
     const [file, setFile] = useState();
     const [imageUrl, setImageUrl] = useState("");
 
     const handleChangeImg = (e) => {
         const file = e.target.files[0];
         setFile(file);
-        if(file){
+        if (file) {
             const imageUrl = URL.createObjectURL(file);
             setImageUrl(imageUrl);
         } else {
@@ -24,30 +61,28 @@ const UserProfile = ({ _id, username, biography, image }) => {
         } catch (error) {
             console.log(error);
         }
-    }
+    };
 
     return (
-        <>
-            <div>
-                <label htmlFor="change-pic">Trocar Imagem</label>
-                <input
-                    id="change-pic"
-                    type="file"
-                    onChange={handleChangeImg}
-                />
+        <Profile>
+            <CardUploadImage>
+                <Label htmlFor="change-pic">Trocar/Adicionar Imagem</Label>
+                <input id="change-pic" type="file" onChange={handleChangeImg} />
                 {imageUrl ? (
-                    <>
-                    <img src={imageUrl} alt='new profile' width='200'/>
-                    <button onClick={handleUpdateImg}>Adicionar nova imagem</button>
-                    </>
+                    <ContainerChangeImage>
+                        <img src={imageUrl} alt="new profile" width="200" />
+                        <button onClick={handleUpdateImg}>Adicionar nova imagem</button>
+                    </ContainerChangeImage>
                 ) : null}
-            </div>
-            <div>
+            </CardUploadImage>
+            <ProfileInformations>
                 <img width="200" src={image} alt={username} />
-            </div>
-            <h3>{username}</h3>
-            <p>{biography}</p>
-        </>
+                <div>
+                    <h3>{`Nome: ${username}`}</h3>
+                    <p>{`Biografia: ${biography}`}</p>
+                </div>
+            </ProfileInformations>
+        </Profile>
     );
 };
 
