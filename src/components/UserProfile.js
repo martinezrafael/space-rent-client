@@ -1,6 +1,7 @@
 import { useState } from "react";
 import apiUtils from "../utils/api.utils";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const ContainerChangeImage = styled.div`
   display: flex;
@@ -29,14 +30,22 @@ const Profile = styled.div`
   max-width: 80%;
 `;
 
+const LinkUsers = styled.span`
+  color: #f9f9fa;
+  background-color: #E64E35;
+  padding: 5px;
+  margin: 20px 0;
+  display: inline-block;
+`;
+
 const ProfileInformations = styled.div`
-    display: flex;
-    align-items: center;
-    background-color: #F9F9FA;
-    color: #1E56BC;
-    padding: 10px;
-    gap: 50px;
-`
+  display: flex;
+  align-items: center;
+  background-color: #f9f9fa;
+  color: #1e56bc;
+  padding: 10px;
+  gap: 50px;
+`;
 
 const UserProfile = ({ _id, username, biography, image, spaces }) => {
     const [file, setFile] = useState();
@@ -82,6 +91,9 @@ const UserProfile = ({ _id, username, biography, image, spaces }) => {
                     <p>{`Biografia: ${biography}`}</p>
                 </div>
             </ProfileInformations>
+            <Link to="/private/users">
+                <LinkUsers>Ver mais usuários</LinkUsers>
+            </Link>
         </Profile>
     );
 };

@@ -14,6 +14,16 @@ const ProfileContainer = styled.div`
   margin: auto;
 `;
 
+const BtnLogout = styled.button`
+    background-color: #E64E35;
+    color: #F9F9FA;
+    cursor: pointer;
+    text-transform: uppercase;
+    border: none;
+    margin: 10px 0;
+    padding: 5px;
+`
+
 const Profile = () => {
     const [user, SetUser] = useState({});
 
@@ -47,7 +57,7 @@ const Profile = () => {
                 <FormSpace />
                 <MediumTextWhite value='Cadastre um Evento'/>
                 <FormEvent />
-                <button onClick={handleLogout}>Logout</button>
+                <BtnLogout onClick={handleLogout}>Logout</BtnLogout>
             </ProfileContainer>
             <Footer />
         </div>
