@@ -1,6 +1,6 @@
 import { useState } from "react";
-import apiUtils from "../utils/api.utils";
 import { useNavigate } from "react-router-dom";
+import apiUtils from "../utils/api.utils";
 
 const FormSignup = () => {
     const [username, setUsername] = useState("");

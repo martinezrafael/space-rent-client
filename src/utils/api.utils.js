@@ -42,6 +42,15 @@ class Api {
         }
     }
 
+    createSpace = async (name, description, size, purposes, price) => {
+        try {
+            const { data } = this.api.post('/spaces', {name, description, size, purposes, price});
+            return data;
+        } catch (error) {
+            throw error.response;
+        }
+    }
+
     login = async (user) => {
         try {
             const { data } = await this.api.post("/auth/login", user);
