@@ -107,6 +107,17 @@ class Api {
         }
     }
 
+    updateImage = async (file) => {
+        try {
+            const imgData = new FormData();
+            imgData.append('image', file);
+            const { data } =  await this.api.put('/user/image', imgData)
+            return data;
+        } catch (error) {
+            throw error.response;
+        }
+    }
+
 }
 
 export default new Api("https://space-rent-api.herokuapp.com/");
