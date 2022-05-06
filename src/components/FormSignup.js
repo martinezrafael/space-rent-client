@@ -1,10 +1,13 @@
 import { useState } from "react";
 import apiUtils from "../utils/api.utils";
+import { useNavigate } from "react-router-dom";
 
 const FormSignup = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [biography, setBiography] = useState("");
+
+    const navigate = useNavigate();
 
     const handleSignup = async () => {
         try {
@@ -12,6 +15,7 @@ const FormSignup = () => {
             setUsername('');
             setPassword('')
             setBiography('');
+            navigate('/login')
         } catch (error) {
             console.log(error);
         }

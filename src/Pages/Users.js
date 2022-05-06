@@ -20,7 +20,7 @@ const Users = () => {
 
     useEffect(() => {
         getAllUsers();
-    }, [getAllUsers()]);
+    }, [getAllUsers])
 
     return (
         <div>

@@ -71,6 +71,24 @@ class Api {
         }
     }
 
+    getSpaces = async () => {
+        try {
+            const { data } = await this.api.get('/spaces');
+            return data;
+        } catch (error) {
+            throw error.response;
+        }
+    }
+
+    getEvents = async () => {
+        try {
+            const { data } = await this.api.get('/events');
+            return data;
+        } catch (error) {
+            throw error.response;
+        }
+    }
+
 }
 
 export default new Api("https://space-rent-api.herokuapp.com/");
