@@ -10,6 +10,11 @@ const Signup = styled.div`
   box-sizing: border-box;
   padding: 20px;
 `;
+
+const Label = styled.label`
+    color: #F9F9FA;
+`
+
 const Input = styled.input`
   width: 100%;
   height: 22px;
@@ -67,7 +72,7 @@ const FormSignup = () => {
         
             <Signup>
                 <div>
-                    <label htmlFor="username">Nome de usuário</label>
+                    <Label htmlFor="username">Nome de usuário</Label>
                     <Input
                         id="username"
                         type="text"
@@ -76,7 +81,7 @@ const FormSignup = () => {
                     />
                 </div>
                 <div>
-                    <label htmlFor="password">Senha</label>
+                    <Label htmlFor="password">Senha</Label>
                     <Input
                         id="password"
                         type="password"
@@ -85,7 +90,7 @@ const FormSignup = () => {
                     />
                 </div>
                 <div>
-                    <label htmlFor="biography">Biografia</label>
+                    <Label htmlFor="biography">Biografia</Label>
                     <TextArea
                         id="biography"
                         type="text"
