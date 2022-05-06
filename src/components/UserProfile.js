@@ -34,7 +34,7 @@ const LinkUsers = styled.span`
   color: #f9f9fa;
   background-color: #E64E35;
   padding: 5px;
-  margin: 20px 0;
+  margin: 20px 10px;
   display: inline-block;
 `;
 
@@ -93,6 +93,9 @@ const UserProfile = ({ _id, username, biography, image, spaces }) => {
             </ProfileInformations>
             <Link to="/private/users">
                 <LinkUsers>Ver mais usuários</LinkUsers>
+            </Link>
+            <Link to="/private/spaces">
+                <LinkUsers>Ver Espaços</LinkUsers>
             </Link>
         </Profile>
     );
