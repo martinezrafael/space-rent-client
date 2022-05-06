@@ -51,6 +51,8 @@ class Api {
         }
     }
 
+   
+
     createEvent = async (title, description, date, price) => {
         try {
             const { data } = this.api.post('/events', {title, description, date, price});
