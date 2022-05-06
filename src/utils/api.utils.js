@@ -100,6 +100,14 @@ class Api {
         }
     }
 
+    deleteSpace = async (id) => {
+        try {
+            await this.api.delete(`/spaces/${id}`)
+        } catch (error) {
+            throw error.response;
+        }
+    }
+
     getEvents = async () => {
         try {
             const { data } = await this.api.get('/events');
