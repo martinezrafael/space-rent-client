@@ -28,7 +28,7 @@ const Spaces = () => {
 
     useEffect(() => {
         getAllSpaces();
-    }, [getAllSpaces])
+    }, [])
 
     return (
         <div>
