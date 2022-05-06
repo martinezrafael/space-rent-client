@@ -20,7 +20,7 @@ const Events = () => {
 
     useEffect(() => {
         getAllEvents();
-    }, [getAllEvents]);
+    }, []);
 
     return (
         <div>
