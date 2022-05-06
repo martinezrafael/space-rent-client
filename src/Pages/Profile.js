@@ -2,43 +2,56 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import FormEvent from "../components/FormEvent";
 import FormSpace from "../components/FormSpace";
+import Header from "../components/Header";
 import UserProfile from "../components/UserProfile";
 import apiUtils from "../utils/api.utils";
+import MediumTextWhite from "../components/MediumTextWhite";
+import styled from "styled-components";
+import Footer from "../components/Footer";
+
+const ProfileContainer = styled.div`
+  max-width: 80%;
+  margin: auto;
+`;
 
 const Profile = () => {
-    const [ user, SetUser ] = useState({});
+    const [user, SetUser] = useState({});
 
     const navigate = useNavigate();
 
-    useEffect(()=>{
+    useEffect(() => {
         const getProfile = async () => {
             try {
                 const user = await apiUtils.getProfile();
                 SetUser(user);
             } catch (error) {
                 console.log(error);
-                navigate('/login')
+                navigate("/login");
             }
-        }
+        };
         getProfile();
-    }, [navigate])
+    }, [navigate]);
 
     const handleLogout = () => {
-        localStorage.removeItem('token');
-        navigate('/login');
-    }
+        localStorage.removeItem("token");
+        navigate("/login");
+    };
 
     return (
         <div>
-            <h2>Profile</h2>
-            <UserProfile {...user}/>
-            <h2>Cadastre um espaço</h2>
-            <FormSpace />
-            <h2>Cadastre um evento</h2>
-            <FormEvent />
-            <button onClick={handleLogout}>Logout</button>
+            <Header />
+            <ProfileContainer>
+                <MediumTextWhite value="Meu perfil" />
+                <UserProfile {...user} />
+                <MediumTextWhite value='Cadastre um Espaço'/>
+                <FormSpace />
+                <MediumTextWhite value='Cadastre um Evento'/>
+                <FormEvent />
+                <button onClick={handleLogout}>Logout</button>
+            </ProfileContainer>
+            <Footer />
         </div>
-    )
-}
+    );
+};
 
 export default Profile;

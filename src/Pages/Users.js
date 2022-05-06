@@ -24,6 +24,7 @@ const Users = () => {
 
     return (
         <div>
+            
             <input id="searchUser" />
             <UserList users={users} getAllUsers={getAllUsers}/>
             <h2>teste</h2>
