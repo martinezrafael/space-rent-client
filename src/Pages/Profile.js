@@ -23,6 +23,11 @@ const Profile = () => {
         getProfile();
     }, [navigate])
 
+    const handleLogout = () => {
+        localStorage.removeItem('token');
+        navigate('/login');
+    }
+
     return (
         <div>
             <h2>Profile</h2>
@@ -31,6 +36,7 @@ const Profile = () => {
             <FormSpace />
             <h2>Cadastre um evento</h2>
             <FormEvent />
+            <button onClick={handleLogout}>Logout</button>
         </div>
     )
 }
