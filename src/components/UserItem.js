@@ -7,12 +7,14 @@ const UserItemComponent = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 340px;
-  height: 340px;
+  width: 280px;
+  height: 400px;
   text-align: center;
+  margin-bottom: 20px;
+  overflow: hidden;
 `;
 const Image = styled.img`
-  height: 60%;
+  height: 50%;
 `;
 
 const Button = styled.button`
