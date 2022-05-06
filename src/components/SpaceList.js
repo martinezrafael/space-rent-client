@@ -1,10 +1,20 @@
 import SpaceItem from "./SpaceItem";
+import styled from 'styled-components';
+
+const List = styled.div`
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 90%;
+    margin: auto;
+    gap: 10px;
+`
 
 const SpaceList = ({spaces, getAllSpaces}) => {
     return (
-        <div>
+        <List>
             {spaces.map(space => <SpaceItem key={space._id} {...space} getAllSpaces={getAllSpaces} />)}
-        </div>
+        </List>
     )
 }
 
