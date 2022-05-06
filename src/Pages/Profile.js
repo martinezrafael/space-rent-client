@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
+import FormEvent from "../components/FormEvent";
 import FormSpace from "../components/FormSpace";
 import UserProfile from "../components/UserProfile";
 import apiUtils from "../utils/api.utils";
@@ -28,6 +29,8 @@ const Profile = () => {
             <UserProfile {...user}/>
             <h2>Cadastre um espaço</h2>
             <FormSpace />
+            <h2>Cadastre um evento</h2>
+            <FormEvent />
         </div>
     )
 }
